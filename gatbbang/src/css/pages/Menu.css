@@ -1,0 +1,431 @@
+/*  오늘의 빵  */
+.pick {
+    padding: 64px 0 120px 0;
+}
+
+.pick-head {
+    display: flex;
+    align-items: baseline;            
+}
+.pick-head .section-title {
+    font-size: 40px;
+}
+.pick-note {
+    font-size: 26px;
+    color: var(--orange);
+    rotate: -2deg;                   
+}
+
+/*  진열대 | 트레이 */
+.pick-grid {
+    display: grid;
+    grid-template-columns: 1fr 448px;
+    gap: 32px;
+    align-items: start;
+}
+.pick-shelves {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+}
+
+/*  진열대 한 칸  */
+.shelf {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 14px;
+    overflow: hidden;
+    /* 위 선반(크림) / 가운데 주황 선 / 아래 받침대(베이지) */
+    background: linear-gradient(
+        #F8EADF 0 222px,
+        #EBB87E 222px 228px,
+        #EBD3B6 228px
+    );
+}
+.shelf-item {
+    display: grid;
+    grid-template-rows: 222px auto;   /* 빵 칸 | 이름표 칸 */
+}
+
+/* 빵 버튼 */
+.shelf-bread {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;            /* 빵을 선반 바닥에 */
+    padding: 0 16px 28px;
+}
+.shelf-bread img {
+    max-width: 85%;
+    max-height: 140px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 8px rgba(90, 50, 20, .25));
+    transition: translate .25s, rotate .25s;
+}
+.shelf-bread:hover img {
+    translate: 0 -10px;               /* 살짝 들어올리기 */
+    rotate: -4deg;
+}
+
+/* 이름표 */
+.shelf-tag {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin: 26px auto 36px;           /* 가운데 정렬 */
+    width: 75%;
+    padding: 14px 0;
+    border-radius: 18px;
+    background: var(--card);
+    color: var(--ink);
+    font-size: 18px;
+    transition: background .2s;
+}
+.shelf-tag:hover {
+    background: #FFE9CC;
+}
+
+/* 내 트레이  */
+.tray-box {
+    position: sticky;
+    top: 113px;                      
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    padding: 40px 47px 28px;
+    border-radius: 14px;
+    background: var(--cream);
+    color: var(--ink);
+}
+.tray-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.tray-head h3 {
+    font-size: 32px;
+}
+.tray-clear {
+    font-size: 15px;
+    text-decoration: underline;
+}
+
+/* 쟁반 */
+.tray {
+    min-height: 232px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: center;
+    gap: 8px;
+    padding: 16px;
+    border: 14px solid #D9D9D9;
+    border-radius: 14px;
+    background: #EBD3B6;
+}
+
+.tray-empty {
+    text-align: center;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.tray-bread {
+    width: 30%;
+}
+
+.tray-bread img {
+    width: 100%;
+    filter: drop-shadow(0 6px 4px rgba(90, 50, 20, .3));
+}
+
+.tray-bread:hover img {
+    filter: drop-shadow(0 6px 4px rgba(90, 50, 20, .3)) brightness(.85);
+}
+
+/* 방금 담은 빵 */
+.tray-info {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 14px;
+    align-items: center;
+    padding: 16px;
+    border: 1px dashed #E2C4A2;
+    border-radius: 12px;
+    background: #FBE6CF;
+}
+
+.tray-info img {
+    width: 100%;
+}
+
+.tray-info-kicker { font-size: 13px; }
+.tray-info-name   { padding-top: 6px; font-size: 18px; }
+.tray-info-desc   { font-size: 13px; line-height: 1.5; }
+
+/* 봉투에 담기 */
+.tray-go {
+    justify-content: center;
+    width: 100%;
+    padding: 16px 0;
+    font-size: 16px;
+}
+.tray-go:disabled {
+    opacity: .4;
+    cursor: not-allowed;
+}
+
+@media (max-width: 1024px) {
+    .pick-grid {
+        grid-template-columns: 1fr 320px;
+    }
+    .tray-box {
+        padding: 28px 24px;
+    }
+}
+
+@media (max-width: 768px) {
+    .pick {
+        padding: 48px 0 72px;
+    }
+    .pick-head {
+        padding-bottom: 28px;
+    }
+    .pick-head .section-title {
+        font-size: 30px;
+    }
+    .pick-note {
+        font-size: 18px;
+    }
+    .pick-grid {
+        grid-template-columns: 1fr;
+    }
+    .pick-shelves {
+        gap: 32px;
+    }
+    .shelf {
+        background: linear-gradient(#F8EADF 0 170px, #EBB87E 170px 176px, #EBD3B6 176px);
+    }
+    .shelf-item {
+        grid-template-rows: 170px auto;
+    }
+    .shelf-bread img {
+        max-height: 100px;
+    }
+    .shelf-tag {
+        width: 85%;
+        margin: 18px auto 20px;
+        font-size: 15px;
+    }
+}
+
+/*  영수증  */
+.receipt-wrap {
+    position: fixed;                  /* 화면에 고정 */
+    inset: 0;                         /* 위아래좌우 0 = 화면 꽉 채우기 */
+    z-index: 100;                     
+    display: grid;
+    place-items: center;              /* 영수증을 정가운데 */
+    padding: 24px;
+}
+.receipt-back {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 10, 5, .6);  
+}
+
+.receipt {
+    position: relative;               
+    width: min(380px, 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    padding: 36px 30px 48px;
+    background: #FFFDF6;
+    color: var(--ink);
+    text-align: center;
+    animation: print .5s ease-out;
+    /* 아래쪽 톱니 모양 */
+    mask:
+        linear-gradient(#000 0 0) top / 100% calc(100% - 10px) no-repeat,
+        conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / 20px 10px repeat-x;
+}
+.rc-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 36px;
+    height: 36px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    font-size: 18px;
+    color: var(--ink-soft);
+    transition: background .2s, color .2s;
+}
+
+.rc-close:hover {
+    background: #F3E6D6;
+    color: var(--ink);
+}
+
+/* 영수증이 위에서 쭉 뽑혀 나오는 효과 */
+@keyframes print {
+    from {
+        transform: translateY(-40px);
+        clip-path: inset(0 0 100% 0);
+    }
+    to {
+        clip-path: inset(0 0 0 0);
+    }
+}
+
+.rc-emblem {
+    width: 88px;
+}
+.rc-shop {
+    font-size: 24px;
+}
+.rc-date {
+    font-size: 12px;
+    color: var(--ink-soft);
+}
+
+/* 담은 빵 목록 */
+.rc-items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 16px 0;
+    border-top: 1.5px dashed #D9C4AA;
+    border-bottom: 1.5px dashed #D9C4AA;
+    font-size: 14px;
+    text-align: left;
+}
+.rc-items li {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+.rc-items i {
+    flex: 1;                          
+    border-bottom: 1.5px dotted #D9C4AA;
+}
+
+.rc-msg {
+    padding: 18px 0 8px;
+    font-size: 20px;
+    color: var(--crust-deep);
+}
+
+.rc-btns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+.rc-btns .btn {
+    padding: 12px 22px;
+    font-size: 14px;
+}
+.rc-ghost {
+    border: 1.5px solid var(--ink);
+    color: var(--ink);
+}
+
+/* 바텀 시트 */
+.tray-toggle,
+.sheet-back {
+    display: none;
+}
+.tray-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* 모바일 */
+@media (max-width: 768px) {
+    .pick {
+        padding-bottom: 140px;            
+    }
+
+    
+    .tray-box {
+        position: fixed;
+        top: auto;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 60;                      
+        max-height: 85vh;                
+        overflow: auto;
+        gap: 0;
+        padding: 0 24px 16px;
+        border-radius: 24px 24px 0 0;     
+        box-shadow: 0 -10px 30px rgba(0, 0, 0, .3);
+    }
+
+    /* 열기 줄 */
+    .tray-toggle {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: center;
+        row-gap: 14px;
+        width: 100%;
+        padding: 12px 8px 20px;
+    }
+    .tray-handle {
+        grid-column: 1 / -1;              
+        justify-self: center;
+        width: 120px;
+        height: 8px;
+        border-radius: 999px;
+        background: #9A5A18;
+    }
+    .tray-toggle-title {
+        justify-self: start;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .tray-count {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .tray-count b {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: #F0952A;
+        color: #fff;
+        font-size: 15px;
+    }
+
+    /* 닫혀 있을 땐 내용 숨기기 */
+    .tray-body {
+        display: none;
+        padding-bottom: 8px;
+    }
+    .tray-box.is-open .tray-body {
+        display: flex;
+    }
+    .tray-head {
+        display: none;                 
+    }
+
+    /* 뒤 어두운 판 */
+    .sheet-back {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 55;                      
+        background: rgba(20, 10, 5, .55);
+    }
+}

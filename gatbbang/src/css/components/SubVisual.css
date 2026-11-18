@@ -1,0 +1,55 @@
+.sub-visual {
+    position: relative;                /* 어두운 막의 기준 */
+    height: 480px;
+    background-size: cover;
+    background-position: center;
+    color: var(--ink);
+}
+
+.sub-visual-inner {
+    position: relative;                /* 글자를 어두운 막보다 위로 */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.sub-visual-kicker {
+    font-size: 14px;
+}
+.sub-visual-title {
+    font-size: 48px;
+    line-height: 1.25;
+}
+.sub-visual-desc {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* 어두운 버전: 사진 위에 어두운 막 + 흰 글자 */
+.sub-visual.is-dark {
+    color: var(--on-dark);
+}
+.sub-visual.is-dark::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(40, 20, 10, .45);
+}
+
+/* ===== 1024 이하 ===== */
+@media (max-width: 1024px) {
+    .sub-visual { height: 400px; }
+    .sub-visual-title { font-size: 40px; }
+}
+
+/* ===== 768 이하 ===== */
+@media (max-width: 768px) {
+    .sub-visual { height: 320px; }
+    .sub-visual-inner { gap: 14px; }
+    .sub-visual-title { font-size: 32px; }
+    .sub-visual-desc { font-size: 14px; }
+}

@@ -1,0 +1,257 @@
+/* 갓빵 본점 */
+.store.section-dark {
+    padding: 120px 0;
+    overflow: hidden;
+    background: radial-gradient(circle at 70% 45%, #5A2E18 0%, var(--dark) 60%);
+}
+
+.store-head {
+    padding-bottom: 60px;
+    font-size: 40px;
+}
+
+.store-map img {
+    width: 100%;
+}
+
+.store-text {
+    position: relative;               
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.store-en {
+    position: absolute;
+    white-space: nowrap;
+    line-height: 1;
+    color: #F7B52C;
+    pointer-events: none;
+}
+
+.store-name {
+    position: relative;              
+    font-size: 28px;
+}
+
+.store-address {
+    font-size: 15px;
+    line-height: 1.6;
+    opacity: .9;
+}
+
+.store-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+}
+
+.store-tags li {
+    padding: 6px 24px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    font-size: 15px;
+}
+
+/* 갓 구운 그대로 담아드려요 */
+.hours {
+    padding: 120px 0 60px;
+    overflow: hidden;
+}
+
+.hours-img img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.hours-text {
+    position: relative;               
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.hours-en {
+    white-space: nowrap;
+    line-height: 1;
+    color: #F4A98A;
+    pointer-events: none;
+}
+
+.hours-title {
+    position: relative;
+    font-size: 36px;
+}
+
+.hours-desc {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* 요일 칸 */
+.hours-week {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.hours-week li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    background: #F6E4CF;
+    font-size: 14px;
+}
+
+.hours-week li.is-off {
+    background: #FBEFE3;
+    opacity: .65;
+}
+
+.hours-week li.is-today {
+    background: var(--dark);
+    color: var(--on-dark);
+    opacity: 1;
+}
+
+/* 이렇게 오세요 */
+.way {
+    padding: 60px 0 120px;
+}
+
+.way-head {
+    padding-bottom: 40px;
+    font-size: 36px;
+}
+
+.way-shelf {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-radius: 14px;
+    overflow: hidden;
+    background: linear-gradient(#F8EADF 0 222px, #EBB87E 222px 228px, #EBD3B6 228px);
+}
+
+.way-item {
+    display: grid;
+    grid-template-rows: 222px auto;
+    justify-items: center;            
+}
+
+.way-bread {
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 24px;
+}
+
+.way-bread img {
+    max-height: 150px;
+    object-fit: contain;
+    filter: drop-shadow(0 10px 8px rgba(90, 50, 20, .25));
+}
+
+.way-tag {
+    width: 65%;
+    padding: 12px 8px;
+    border-radius: 18px;
+    background: var(--card);
+    text-align: center;
+    translate: 0 22px;                
+}
+
+.way-item {
+    padding-bottom: 44px;             
+}
+
+.way-kind  { font-size: 15px; }
+.way-place { font-size: 18px; font-weight: 700; }
+.way-desc  { font-size: 13px; }
+
+/* PC */
+@media (min-width: 769px) {
+    .store-item,
+    .hours-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+    }
+
+    .store-text { padding-top: 110px; }
+    .store-en {
+        top: 0;
+        left: -100px;                 
+        font-size: 120px;
+        rotate: -3deg;
+    }
+
+    /* 영업시간 */
+    .hours-img { order: 2; }
+    .hours-text {
+        align-items: flex-end;
+        text-align: right;
+        padding-top: 90px;
+    }
+    .hours-en {
+        position: absolute;
+        top: -40px;
+        right: -40px;
+        font-size: 130px;
+        rotate: -6deg;
+    }
+
+    .day-short { display: none; }    
+}
+
+@media (max-width: 768px) {
+    .store.section-dark { padding: 72px 0; }
+    .store-head { padding-bottom: 32px; font-size: 30px; }
+    .store-text { padding-top: 40px; }
+    .store-en {
+        top: -40px;
+        left: 40px;
+        font-size: 72px;
+        rotate: -3deg;
+    }
+
+    .store-name { font-size: 24px; }
+
+    /* 영업시간 */
+    .hours { padding: 72px 0 40px; }
+    .hours-item {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .hours-text { display: contents; }  
+    .hours-title { order: -2; font-size: 28px; }
+    .hours-img   { order: -1; }
+    .hours-en {
+        font-size: 64px;
+        translate: 0 -55%;            
+        rotate: -4deg;
+    }
+
+    .hours-desc { font-size: 15px; }
+
+    .day-long { display: none; }      
+
+    .way { padding: 40px 0 72px; }
+    .way-head { padding-bottom: 24px; font-size: 28px; }
+    .way-shelf {
+        background: linear-gradient(#F8EADF 0 140px, #EBB87E 140px 146px, #EBD3B6 146px);
+    }
+    
+    .way-item { grid-template-rows: 140px auto; }
+    .way-bread img { max-height: 90px; }
+    .way-tag { width: 90%; }
+    .way-place { font-size: 14px; }
+    .way-desc { font-size: 11px; }
+}

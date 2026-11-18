@@ -1,0 +1,254 @@
+.sub-visual {
+    height: 480px;
+    background-size: cover;           
+    background-position: center;       
+    color: var(--ink);                 
+}
+
+.sub-visual-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;          
+    align-items: center;               
+    gap: 20px;
+    text-align: center;
+}
+
+.sub-visual-kicker {
+    font-size: 14px;
+}
+
+.sub-visual-title {
+    font-size: 48px;
+    line-height: 1.25;
+}
+
+.sub-visual-desc {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+@media (max-width: 1024px) {
+    .sub-visual { height: 400px; }
+    .sub-visual-title { font-size: 40px; }
+}
+
+@media (max-width: 768px) {
+    .sub-visual { height: 320px; }
+    .sub-visual-inner { gap: 14px; }
+    .sub-visual-title { font-size: 32px; }
+    .sub-visual-desc { font-size: 14px; }
+}
+
+/*갓빵의 이야기*/
+.story {
+    padding: 120px 0;
+    overflow: hidden;                 
+}
+
+.story-head {
+    padding-bottom: 60px;
+    font-size: 40px;
+}
+
+.story-img {
+    position: relative;
+    z-index: 1;                       
+}
+.story-img img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.story-text {
+    position: relative;              
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.story-name {
+    position: relative;
+    z-index: 1;                     
+    font-size: 28px;
+    font-weight: 700;
+}
+.story-desc {
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 500;
+}
+.story-text .link-more {
+    position: relative;
+    z-index: 1;
+    padding-top: 12px;
+}
+
+.story-en {
+    position: absolute;
+    pointer-events: none;
+}
+
+@media (min-width: 769px) {
+    .story-item {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 26px;
+        align-items: center;
+    }
+
+    .story-item.reverse .story-img { order: 2; }
+    .story-item.reverse .story-text {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    .story-en {
+        width: calc(100% + 80px);
+        top: 217px;
+        left: -43px;
+    }
+
+    .story-item.reverse .story-en {
+        width: calc(100% + 30px);
+        top: -38px;
+        left: auto;
+        right: 14px;
+    }
+}
+
+@media (max-width: 768px) {
+    .story {
+        padding: 72px 0;
+    }
+    .story-head {
+        padding-bottom: 32px;
+        font-size: 30px;
+    }
+
+    .story-text {
+        padding-top: 36px;            
+        gap: 14px;
+    }
+    .story-name {
+        font-size: 24px;
+    }
+
+    .story-item.reverse .story-text {
+        align-items: flex-end;
+        text-align: right;
+    }
+
+    .story-en {
+        width: 85%;
+        top: -12px;
+        right: -53px;
+    }
+
+    .story-item.reverse .story-en {
+        width: 75%;
+        top: 3px;
+        right: auto;
+        left: -36px;
+    }
+}
+
+/* 갓빵의 하루 */
+.day {
+    padding: 120px 0;
+}
+.day-head {
+    padding-bottom: 60px;
+    font-size: 40px;
+}
+
+/* 시간표 카드 */
+.day-card {
+    position: relative;              
+    padding: 56px 64px 64px;
+    border-radius: 6px;
+    background: #F9EDE0;
+    color: var(--ink);
+}
+
+/* 테이프 공통 */
+.day-card::before,
+.day-card::after {
+    content: "";
+    position: absolute;
+    width: 110px;
+    height: 32px;
+    border-radius: 4px;
+}
+/* 왼쪽 위 초록 테이프 */
+.day-card::before {
+    top: 7px;
+    left: -15px;
+    background: rgba(200, 230, 90, .85);
+    rotate: -18deg;
+}
+/* 오른쪽 아래 살구색 테이프 */
+.day-card::after {
+    right: -34px;
+    bottom: 2px;
+    background: rgba(240, 160, 130, .85);
+    rotate: -20deg;
+}
+
+.day-card-head {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.day-title { font-size: 28px; }
+.day-sub   { font-size: 14px; }
+
+/* 시간표 목록 */
+.day-list {
+    border-top: 1px dashed #E6B98A;   
+}
+.day-row {
+    display: grid;
+    grid-template-columns: 90px 1fr; 
+    gap: 16px;
+    padding: 36px 24px;
+    border-bottom: 1px dashed #E6B98A;
+}
+.day-time { font-size: 24px; }
+.day-name { font-size: 16px; font-weight: 600; }
+.day-desc { padding-top: 6px; font-size: 15px; line-height: 1.6; }
+
+@media (min-width: 769px) {
+    .day-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(4, auto);
+        grid-auto-flow: column;       
+        column-gap: 40px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .day {
+        padding: 72px 0;
+    }
+    .day-head {
+        padding-bottom: 32px;
+        font-size: 30px;
+    }
+    .day-card {
+        padding: 40px 24px;
+    }
+    .day-row {
+        grid-template-columns: 80px 1fr;
+        padding: 20px 8px;
+    }
+    .day-time { font-size: 20px; }
+    .day-desc { font-size: 13px; }
+}
